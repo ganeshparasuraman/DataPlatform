@@ -1,0 +1,42 @@
+{
+  "type": "ds/write",
+  "to": {
+    "type": "dst/csv",
+    "path": "./example-data/actor_mod.csv",
+    "format": "csv",
+    "header" : true,
+    "separator" : "|"
+
+  },
+  "saveMode": "overwrite",
+  "src" : {
+    "type" : "ds/cols" ,
+    "src": {
+      "type": "ds/read",
+      "from": {
+        "type": "src/csv",
+        "path": "./example-data/actor.csv",
+        "format": "csv",
+        "header" : true
+      }
+    },
+    "ops": [
+      {
+        "type": "ds/col/rename",
+        "from": "actor_id",
+        "to": "actorid"
+      },
+      {
+        "type": "ds/col/add",
+        "name": "newactor_id",
+        "value": {
+          "type" : "col",
+          "colName" : "actorid"
+        }
+      }
+    ]
+  }
+
+
+}
+

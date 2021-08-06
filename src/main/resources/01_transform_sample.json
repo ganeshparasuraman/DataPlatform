@@ -1,0 +1,54 @@
+{
+  "source" : {
+    "name" : "entityname",
+    "mainreader" : {
+      "type": "dst/csv",
+      "path": "./example-data/actor_mod.csv",
+      "format": "csv",
+      "header" : true,
+      "separator" : "|"
+    },
+    "readers" : [
+     {
+          "type": "dst/csv",
+          "path": "./example-data/actor_mod.csv",
+          "format": "csv",
+          "header" : true,
+          "separator" : "|",
+          "joinCondition" : "",
+          "joinType" : ""
+
+        }
+      ,
+       {
+          "type": "dst/csv",
+          "path": "./example-data/actor_mod.csv",
+          "format": "csv",
+          "header" : true,
+          "separator" : "|",
+          "joinCondition" : "",
+          "joinType" : ""
+
+        }
+    ]
+  },
+  "transforms" : [
+    {
+      "type" : "col/rename",
+      "function" : {
+        "name" : "",
+
+      }
+
+    },
+    {
+      "type" : "col/add",
+      "colname" :
+    }
+  ]
+,
+  "load" : {
+
+  }
+
+}

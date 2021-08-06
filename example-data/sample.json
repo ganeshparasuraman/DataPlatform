@@ -1,0 +1,29 @@
+{
+  "type": "ds/write",
+  "to": {
+    "type": "dst/mongo",
+    "uri": "mongodb://mongouser:mongopw@localhost:27017/?authSource=admin&readPreference=primary&ssl=false",
+    "database": "sakila",
+    "collection": "actors",
+    "replaceDocument": "true"
+  },
+  "saveMode": "overwrite",
+  "src": {
+    "type": "ds/cols",
+    "src": {
+      "type": "ds/read",
+      "from": {
+        "type": "src/file",
+        "path": "./example-data/temp/actor.orc",
+        "format": "orc"
+      }
+    },
+    "ops": [
+      {
+        "type": "ds/col/rename",
+        "from": "actor_id",
+        "to": "_id"
+      }
+    ]
+  }
+}
